@@ -20,7 +20,7 @@ struct data
 void vector_print(vector <double> vec)
 {
 	for (auto &i : vec)			
-		cout << i << " ";
+		cout << i << endl;
 }
 
 
@@ -76,6 +76,34 @@ void loadData(string nameFile)
 }
 
 
+
+// Simple moving average calculator
+vector <double> sma_calc(
+	vector <double> sma,
+	vector <double> x_vec,
+	vector <double> y_vec)
+{
+	int period = 12;							// Setting a year to avoid seasonality
+	int j = 0;									// Counter
+
+	while (j < (y_vec.size() - 12))				// Steps up 1 month at a time
+	{
+		double sum = 0;							// Resetting the sum and average
+		double avr = 0;
+		int i = 0;								// Counter
+		while (i < period)						// Gives a full years sum
+		{
+			sum += y_vec[i+j];					// Summing up for that year
+			i++;
+		}
+		avr = sum / period;						// Average over a year
+		sma.push_back(avr);						// Adding to SMA vector
+		j++;
+	}
+	return sma;
+}
+
+
 int main()
 {
 	string nameFile = "Data\\IDCJAC0002_015590\\IDCJAC0002_015590_Data1.csv";
@@ -83,11 +111,16 @@ int main()
 	loadData(nameFile);				// Load the input data in a data structure.
 	vector<double> x_vec;
 	vector<double> y_vec;
+	vector<double> sma;
+
 	x_vec = inData.x_vec;
 	y_vec = inData.y_vec;
 
-	vector_print(y_vec);
-	cout << endl;
+	// Want to load in the xvec and yvec and be returned a vector with SMA
+	sma = sma_calc(sma, x_vec, y_vec);
+	vector_print(sma);
+	//cout << endl;
+
 	system("pause");
 }
 
