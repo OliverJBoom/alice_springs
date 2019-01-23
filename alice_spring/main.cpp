@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <stdlib.h> 
+#include "linear_regression.h"
 
 using namespace std;
 
@@ -11,8 +12,8 @@ using namespace std;
 // Define a structure that will contain the input data.
 struct data 
 {
-	vector<double> x_vec;			// x_vec : time values
-	vector<double> y_vec;			// y_vec : temperature values
+	vector<double> x_vec;							// x_vec : time values
+	vector<double> y_vec;							// y_vec : temperature values
 } inData;
 
 
@@ -76,11 +77,9 @@ void loadData(string nameFile)
 }
 
 
-
 // Simple moving average calculator
 vector <double> sma_calc(
 	vector <double> sma,
-	vector <double> x_vec,
 	vector <double> y_vec)
 {
 	int period = 12;							// Setting a year to avoid seasonality
@@ -104,23 +103,26 @@ vector <double> sma_calc(
 }
 
 
+// Want to include both linear and polynomial regression
+
+
 int main()
 {
 	string nameFile = "Data\\IDCJAC0002_015590\\IDCJAC0002_015590_Data1.csv";
     
-	loadData(nameFile);				// Load the input data in a data structure.
+	loadData(nameFile);							// Load the input data in a data structure.
 	vector<double> x_vec;
 	vector<double> y_vec;
-	vector<double> sma;
+	vector<double> sma_temp;
 
 	x_vec = inData.x_vec;
 	y_vec = inData.y_vec;
 
-	// Want to load in the xvec and yvec and be returned a vector with SMA
-	sma = sma_calc(sma, x_vec, y_vec);
-	vector_print(sma);
+	sma_temp = sma_calc(sma_temp, y_vec);		// Calculates the simple moving average 
+	//vector_print(sma_temp);					// for temp over the known time frame
 	//cout << endl;
-
+	linear_regression();						// Can call functions from external files 
+												// in the same manner as functions in this file
 	system("pause");
 }
 
