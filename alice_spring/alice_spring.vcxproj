@@ -117,9 +117,11 @@
   <ItemGroup>
     <ClCompile Include="linear_regression.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_Regression.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
