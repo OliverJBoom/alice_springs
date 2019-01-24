@@ -17,7 +17,13 @@ struct data
 	vector<double> x_in;									// x_in : time values
 	vector<double> y_in;									// y_in : temperature values
 
-	void loadData(string nameFile, int col_num);			// The method that loads in the data
-};
+	void load_data(string nameFile, int col_num);			// The method that loads in the data
+	void load_climate_data(string nameFile);				// The method that loads in the climate data
+	void sma_calc(vector<double> x_vec, vector<double> y_vec, int period);
+
+															// Should you be initialising these as class methods or general functions
+	// If they can be class methods then so can SMA calc
+
+}
 
 #endif

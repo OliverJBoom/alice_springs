@@ -13,8 +13,8 @@ string FILE_TEST = "Data\\Numerical_Example.csv";
 
 struct data DATA_TEST_x;							// Loading in the numerical examples into the  
 struct data DATA_TEST_y;							// x and y vectors  
-DATA_TEST_x.loadData(FILE_TEST, 0);
-DATA_TEST_y.loadData(FILE_TEST, 1);
+DATA_TEST_x.load_data(FILE_TEST, 0);
+DATA_TEST_y.load_data(FILE_TEST, 1);
 
 Linear_Regression Test;
 Test.x_vec = DATA_TEST_x.y_in;
