@@ -33,6 +33,14 @@ void Linear_Regression::slope_cal()
 
 void Linear_Regression::slope_print()
 {
-	cout << "Alpha:" << alpha << endl;
-	cout << "Beta:" << beta << endl;
+	cout << "Alpha:" << alpha << endl;				// The y intercept
+	cout << "Beta:" << beta << endl;				// The slope 
+}
+
+
+
+void Linear_Regression::extrapolation(float x)
+{
+	cout << endl << "Temperature Prediction: " << (x * beta) + alpha << endl;
+	//return (x * beta) + alpha;
 }

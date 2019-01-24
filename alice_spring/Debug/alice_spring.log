@@ -1,8 +1,12 @@
-﻿  Tests.cpp
-  linear_regression.cpp
+﻿  linear_regression.cpp
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\linear_regression.cpp(6): error C2059: syntax error: 'using namespace'
   main.cpp
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\tests.h(6): error C2059: syntax error: 'using namespace'
+  Tests.cpp
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\tests.h(6): error C2059: syntax error: 'using namespace'
   utils.cpp
-c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(34): warning C4018: '<': signed/unsigned mismatch
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(10): error C2059: syntax error: 'using namespace'
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(70): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-  alice_spring.vcxproj -> C:\Users\acse5-user\source\repos\alice_springs\Debug\alice_spring.exe

@@ -20,6 +20,7 @@ class Linear_Regression
 		// Class methods
 		void slope_cal();
 		void slope_print();
+		void extrapolation(float x);
 };
 
 #endif
