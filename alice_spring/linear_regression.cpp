@@ -1,29 +1,38 @@
 #include <iostream>
 #include <string>
-#include "Linear_Regression.h"			// Including the appropriate header file 
-#include "Utils.h"						//containing the linear regression class
+#include "Linear_Regression.h"			
+#include "Utils.h"						
 
 using namespace std;
 
 
+
 void Linear_Regression::slope_cal()
 {
-	// Could have scope issue here. Am defining the xvec and yvec in the class but how can you use them without creating an instance in this function
-		//x_vec
-		//y_vec
-
 		int i = 0;
-		while (i < (y_vec.size()))
-			cout << i;
+		int n = y_vec.size();
+		double Sx = 0;
+		double Sxx = 0;
+		double Sxy = 0;
+		double Sy = 0;
+		
+	while (i < n)
+		{
+			Sx += x_vec[i];
+			Sy += y_vec[i];
+			Sxy += x_vec[i] * y_vec[i];
+			Sxx += x_vec[i] * x_vec[i];
 			i++;
+		}
 
-	// must create sum of x
-	// must create sum of y
-	// must create sum of xy
-	// must create sum of x squared
-
-	//cout << "Hello world";
+	beta = (n * Sxy - (Sx * Sy)) / (n * Sxx - (Sx * Sx));
+	alpha = Sy / n - (beta * Sx / n);
 }
 
 
 
+void Linear_Regression::slope_print()
+{
+	cout << "Alpha:" << alpha << endl;
+	cout << "Beta:" << beta << endl;
+}

@@ -1,3 +1,8 @@
-﻿  linear_regression.cpp
-c:\users\acse5-user\source\repos\alice_spring\alice_spring\linear_regression.cpp(16): warning C4018: '<': signed/unsigned mismatch
-  alice_spring.vcxproj -> C:\Users\acse5-user\source\repos\alice_spring\Debug\alice_spring.exe
+﻿  Tests.cpp
+  linear_regression.cpp
+  main.cpp
+  utils.cpp
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(34): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  alice_spring.vcxproj -> C:\Users\acse5-user\source\repos\alice_springs\Debug\alice_spring.exe
