@@ -4,10 +4,11 @@
 #include <sstream>
 #include <vector>
 #include <stdlib.h> 
-#include "linear_regression.h"
+#include "Linear_Regression.h"
+#include "Utils.h"
+
 
 using namespace std;
-
 
 // Define a structure that will contain the input data.
 struct data 
@@ -15,14 +16,6 @@ struct data
 	vector<double> x_vec;							// x_vec : time values
 	vector<double> y_vec;							// y_vec : temperature values
 } inData;
-
-
-// Generic vector print function
-void vector_print(vector <double> vec)
-{
-	for (auto &i : vec)			
-		cout << i << endl;
-}
 
 
 // Load the data in a struct.
@@ -119,10 +112,16 @@ int main()
 	y_vec = inData.y_vec;
 
 	sma_temp = sma_calc(sma_temp, y_vec);		// Calculates the simple moving average 
-	//vector_print(sma_temp);					// for temp over the known time frame
-	//cout << endl;
-	linear_regression();						// Can call functions from external files 
-												// in the same manner as functions in this file
+	//vector_print(sma_temp);						// for temp over the known time frame
+
+	Linear_Regression Temp;			
+	// Have created an object now want to change its attributed in another file
+
+	Temp.x_vec = x_vec;
+	Temp.y_vec = y_vec;
+	Temp.slope_cal();
+
+
 	system("pause");
 }
 
