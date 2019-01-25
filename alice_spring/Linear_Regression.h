@@ -16,10 +16,13 @@ class Linear_Regression
 		double std;
 		vector <double> x_vec;
 		vector <double> y_vec;
+		double extrapolation(double x);
+
 
 		// Class methods
 		void slope_cal();
 		void slope_print();
+		
 };
 
 #endif

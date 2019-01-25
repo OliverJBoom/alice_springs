@@ -36,3 +36,11 @@ void Linear_Regression::slope_print()
 	cout << "Alpha:" << alpha << endl;
 	cout << "Beta:" << beta << endl;
 }
+
+
+
+double Linear_Regression::extrapolation(double x)
+{
+	//cout << endl << "Temperature Prediction: " << (x * beta) + alpha << endl;
+	return (x * beta) + alpha;
+}
