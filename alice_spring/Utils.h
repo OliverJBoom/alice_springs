@@ -28,7 +28,8 @@ struct data
 
 	vector<double> expSmt(vector<double> vec, double w);
 
-	void loadData(string nameFile, int col_num);			// The method that loads in the data
+
+	void load_data(string nameFile, int col_num);			// The method that loads in the data
 	void load_climate_data(string nameFile);			// The method that loads in the data
 	void sma_mat(vector<double> x_vec, vector<double> y_vec, int period);
 };

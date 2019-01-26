@@ -10,7 +10,7 @@
 
 using namespace std;
 /*
-// 
+
 
 Add requirements + Readme (GNU PLOT, Visual studio etc)
 Make sure naming convention is consistent. All names like this_that
@@ -21,21 +21,24 @@ Have colour of lines plotted in different colours
 
 */
 
+
 int main()
 {
 	test_regression();									// Tests linear regression model for known data
 	
 	string Temp_File = "Data\\IDCJAC0002_015590\\IDCJAC0002_015590_Data1.csv";
 	struct data Temp_In;
-	Temp_In.load_climate_data(Temp_File);						// Load the input data in a data structure.
+	Temp_In.load_climate_data(Temp_File);				// Load the input data in a data structure.
 	
 	//cout << "Temp In X:" << endl;
 	//vector_print(Temp_In.x_in);
 	//cout << "Temp In Y:" << endl;
 	//vector_print(Temp_In.y_in);
 
-	vector<double> sma_temp;							// Calculating the simple moving average for temperature
-	sma_temp = sma_calc(sma_temp, Temp_In.y_in);		// Calculates the simple moving average 
+	//vector<double> sma_temp;							// Calculating the simple moving average for temperature
+	//sma_temp = sma_calc(sma_temp, Temp_In.y_in);		// Calculates the simple moving average 
+	
+	//cout << "Simple Moving Average :" << endl;
 	//vector_print(sma_temp);							// for temp over the known time frame
 	
 	//cout << "X Mid:" << endl;
@@ -45,7 +48,7 @@ int main()
 	
 
 	Linear_Regression Temp;								// Simple moving average readings
-	Temp_In.sma_mat(Temp_In.x_in, sma_temp, 48);	
+	Temp_In.sma_mat(Temp_In.x_in, Temp_In.y_in, 48);
 	//Temp.x_vec = Temp_In.x_sma;
 	//Temp.y_vec = Temp_In.y_sma;
 	//cout << "X_SMA Lenght Smooth:" << Temp_In.x_sma.size() << endl;
@@ -71,7 +74,6 @@ int main()
 	//////plotXY(x_extra, y_extra);5
 
 	plotXY(Temp.x_vec, Temp.y_vec);
-
 
 	system("pause");
 }

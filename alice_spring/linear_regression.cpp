@@ -38,7 +38,6 @@ void Linear_Regression::slope_print()
 }
 
 
-
 double Linear_Regression::extrapolation(double x)
 {
 	//cout << endl << "Temperature Prediction: " << (x * beta) + alpha << endl;

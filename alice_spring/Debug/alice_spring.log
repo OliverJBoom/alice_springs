@@ -1,2 +1,11 @@
-﻿  main.cpp
+﻿  linear_regression.cpp
+  main.cpp
+  Tests.cpp
+  utils.cpp
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(84): warning C4018: '<': signed/unsigned mismatch
+c:\users\acse5-user\source\repos\alice_springs\alice_spring\utils.cpp(217): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  LINK : C:\Users\acse5-user\source\repos\alice_springs\Debug\alice_spring.exe not found or not built by the last incremental link; performing full link
   alice_spring.vcxproj -> C:\Users\acse5-user\source\repos\alice_springs\Debug\alice_spring.exe
