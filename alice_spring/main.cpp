@@ -42,7 +42,7 @@ int main()
 	regress.x_vec = temp_in.x_sma;						// exponentially smoothed simple moving 		
 	regress.y_vec = exp_smooth;							// average data		
 	regress.slope_cal();
-	regress.slope_print();
+	//regress.slope_print();
 
 	for (int i = 2018; i < 2050; i++)					// Extrapolate using regression coefficients
 	{
