@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+
 #include "Linear_Regression.h"			
 #include "Utils.h"						
 
-using namespace std;
 
+using namespace std;
 
 
 void Linear_Regression::slope_cal()
@@ -36,6 +37,7 @@ void Linear_Regression::slope_print()
 	cout << "Alpha:" << alpha << endl;
 	cout << "Beta:" << beta << endl;
 }
+
 
 
 double Linear_Regression::extrapolation(double x)

@@ -24,4 +24,5 @@ class Linear_Regression
 		void slope_print();
 };
 
+
 #endif

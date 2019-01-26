@@ -1,0 +1,10 @@
+// Define the input file.
+// If the input file is not in the source code folder, give the full path.
+input_file : Data\\IDCJAC0002_015590\\IDCJAC0002_015590_Data1.csv
+
+// Define the width of the time window (in months) to be used in the 
+// simple moving average.
+time_window : 48
+
+// Factor associated with exponential smoothing
+smoothing_factor : 0.05

@@ -3,12 +3,13 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+
 #include <stdlib.h> 
 #include "Utils.h"	
 #include <math.h>
 
-using namespace std;
 
+using namespace std;
 
 
 // Generic vector print function
@@ -28,33 +29,8 @@ double rounding(double input, int dp)
 
 
 
-// Simple moving average calculator
-vector <double> sma_calc_old(vector <double> sma,vector <double> y_vec)
-{
-	int period = 12;							// Setting a year to avoid seasonality
-	int j = 0;									// Counter
-
-	while (j < (y_vec.size() - 12))				// Steps up 1 month at a time
-	{
-		double sum = 0;							// Resetting the sum and average
-		double avr = 0;
-		int i = 0;								// Counter
-		while (i < period)						// Gives a full years sum
-		{
-			sum += y_vec[i + j];				// Summing up for that year
-			i++;
-		}
-		avr = sum / period;						// Average over a year
-		sma.push_back(avr);						// Adding to SMA vector
-		j++;
-	}
-	return sma;
-}
-
-
-
 // Compute exponential smoothing.
-vector<double> expSmt(vector<double> vec, double w)
+vector<double> exp_smt(vector<double> vec, double w)
 {
 	int num = vec.size();
 	vector<double> vec_smt;  // vector with smoothed values
@@ -67,8 +43,9 @@ vector<double> expSmt(vector<double> vec, double w)
 }
 
 
+
 // Exponential smoothing average
-void data::sma_mat(
+void Data::sma_calc(
 	vector<double> x_vec,
 	vector<double> y_vec,
 	int period)
@@ -103,7 +80,7 @@ void data::sma_mat(
 
 
 // Load the data in a struct
-void data::load_data(string nameFile, int col_num)
+void Data::load_data(string nameFile, int col_num)
 {
 	fstream inFile;									// Get a stream variable
 	inFile.open(nameFile, fstream::in);				// Open the input file
@@ -151,7 +128,7 @@ void data::load_data(string nameFile, int col_num)
 
 
 // Load the date specific weather data in a struct.
-void data::load_climate_data(string nameFile)
+void Data::load_climate_data(string nameFile)
 {
 	fstream inFile;									// Get a stream variable
 	inFile.open(nameFile, fstream::in);				// Open the input file
@@ -207,7 +184,6 @@ void data::load_climate_data(string nameFile)
 
 
 
-
 // Write x and y vectors in a .csv file.
 void writeOutput(vector<double> x_vec, vector<double> y_vec, string nameFile)
 {
@@ -223,6 +199,7 @@ void writeOutput(vector<double> x_vec, vector<double> y_vec, string nameFile)
 	x_vec.clear();
 	y_vec.clear();
 }
+
 
 
 // Plot x and y values.
