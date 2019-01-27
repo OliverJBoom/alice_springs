@@ -14,13 +14,6 @@
 
 
 using namespace std;
-/*
-
-Add requirements + Readme (GNU PLOT, Visual studio etc)
-Get rid of legend in plot
-Have colour of lines plotted in different colours
-
-*/
 
 
 int main()
