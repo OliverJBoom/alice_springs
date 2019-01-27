@@ -14,6 +14,8 @@ double rounding(double input, int dp);
 void vector_print(vector <double> vec);
 void writeOutput(vector<double> x_vec, vector<double> y_vec, string nameFile);
 void plotXY(vector<double> x_vec, vector<double> y_vec);
+void plotXY_reg(vector<double> x_vec, vector<double> y_vec,
+	vector<double> x_vec_regr, vector<double> y_vec_regr);
 
 
 // Define a structure that will contain the input data.
@@ -21,8 +23,7 @@ struct Data
 {
 	// Struct Attributes
 	vector<double> x_in;									// x_in : time values
-	vector<double> y_in;									// y_in : temperature values
-	
+	vector<double> y_in;									// y_in : temperature values	
 	vector<double> x_sma;									// corresponding time value to sma
 	vector<double> y_sma;									// simple moving average values
 

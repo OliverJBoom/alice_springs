@@ -16,6 +16,8 @@ class Linear_Regression
 		double std;
 		vector <double> x_vec;
 		vector <double> y_vec;
+		vector <double> x_pred;
+		vector <double> y_pred;
 		double extrapolation(double x);
 
 

@@ -51,3 +51,50 @@ void Input_Params::read_params()
 		}
 	}
 }
+
+
+
+// Promt the user to input the year and the month for the temperature forecast.
+void Inp_Par_Ter::get_inp_ter()
+{
+	bool b_fail;
+
+	cout << endl << "Type the year of the forecasted temperature:" << endl;
+
+	do {
+		cin >> year;									// Get the year
+		b_fail = cin.fail();
+
+		if (b_fail == true)								// Make sure that a numeric value has been typed
+		{						
+			cout << endl << "Error, an integer number is requested." << endl;
+		}
+
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	} while (b_fail == true);
+
+	cout << endl << "Type the month (in numbers, e.g., type 1";
+	cout <<	" for January) of the forecasted temperature:" << endl;
+
+	do {
+		cin >> month;									// Get the month
+		b_fail = cin.fail();
+
+		if (b_fail == true)								// Make sure that a numeric value has been typed.
+		{
+			cout << endl << "Error, an integer number is requested." << endl;
+		}
+
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	} while (b_fail == true);
+}
+
+
+
+// Reading in the key parameters from the params.txt file
+double Inp_Par_Ter::convert_date(int year, int month)
+{
+	return (double)year + ((double)month - 0.5) / 12.;	// Normalize the month in fraction of the year.
+}														// Assume temperature is relative to the the mid of the month.

@@ -1,3 +1,2 @@
-﻿  main.cpp
-c:\users\acse5-user\source\repos\alice_springs\alice_spring\main.cpp(36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  Params.cpp
   alice_spring.vcxproj -> C:\Users\acse5-user\source\repos\alice_springs\Debug\alice_spring.exe

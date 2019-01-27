@@ -7,7 +7,7 @@
 
 using namespace std;
 
-
+// Performs linear regression by reducing the error from least squares
 void Linear_Regression::slope_cal()
 {
 		int i = 0;
@@ -26,8 +26,8 @@ void Linear_Regression::slope_cal()
 			i++;
 		}
 
-	beta = (n * Sxy - (Sx * Sy)) / (n * Sxx - (Sx * Sx));
-	alpha = Sy / n - (beta * Sx / n);
+	beta = (n * Sxy - (Sx * Sy)) / (n * Sxx - (Sx * Sx));	//aThe slope of the line of regression
+	alpha = Sy / n - (beta * Sx / n);						//The y-intercept of the line of regression
 }
 
 

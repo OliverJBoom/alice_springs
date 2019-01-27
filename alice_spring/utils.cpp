@@ -235,3 +235,48 @@ void plotXY(vector<double> x_vec, vector<double> y_vec)
 		_pclose(gnuplotPipe);    //close pipe
 	}
 }
+
+
+// Plot x and y values and the regression line as seperate markers
+void plotXY_reg(vector<double> x_vec, vector<double> y_vec, vector<double> x_vec_regr, vector<double> y_vec_regr)
+{
+	// Write x_vec and y_vec in an output .csv file.
+	string outFile = "out_0.csv";
+	writeOutput(x_vec, y_vec, outFile);
+
+	// Write output from linear regression in an output .csv file.
+	outFile = "out_1.csv";
+	writeOutput(x_vec_regr, y_vec_regr, outFile);
+
+	// Create a pipe to send information to gnuplot.
+	FILE *gnuplotPipe = _popen("\"C:\\Program Files\\gnuplot\\bin\\gnuplot.exe\" -persistent", "w");
+
+	if (gnuplotPipe) {   // If gnuplot is found
+		fprintf(gnuplotPipe, "set xlabel 'Time (years)'\n");
+		fprintf(gnuplotPipe, "set ylabel 'Temperature ({\260}C)'\n");
+		fprintf(gnuplotPipe, "set title 'Temperature vs. Time'\n");
+
+		// Make a 2D plot.
+		fprintf(gnuplotPipe, "set datafile separator \",\"\n");
+		fprintf(gnuplotPipe, "set key\n");
+		fprintf(gnuplotPipe, "set key right bottom\n");  //define the legend location
+		fprintf(gnuplotPipe, "set termoption dash \n");
+		fprintf(gnuplotPipe, "set for [i=1:5] linetype i dt i \n");  // reset some linetypes
+		fprintf(gnuplotPipe, "set style line 4 lt 2 lc rgb \"green\" lw 2\n");  // define a linetype
+		fprintf(gnuplotPipe, "plot \"out_0.csv\" title \"Smoothed values\" with points,\
+                                       \"out_1.csv\" ls 4 title \"Linear regression\" with lines \n");  //plot and add legend
+
+			// fprintf(gnuplotPipe, "plot \"out.csv\" using 1:2 every 24\n"); //plot only every x values
+
+			// Save the plot as .gif.
+		fprintf(gnuplotPipe, "set terminal push\n");
+		fprintf(gnuplotPipe, "set terminal gif size 640, 480\n");
+		fprintf(gnuplotPipe, "set output \"output_plot.gif\"\n");
+		fprintf(gnuplotPipe, "replot\n");
+		fprintf(gnuplotPipe, "set terminal pop\n");
+
+		fflush(gnuplotPipe); //flush pipe
+		fprintf(gnuplotPipe, "\nexit \n");   // exit gnuplot
+		_pclose(gnuplotPipe);    //close pipe {{1111223ssdww
+	}
+}
