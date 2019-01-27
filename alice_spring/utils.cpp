@@ -210,7 +210,8 @@ void plotXY(vector<double> x_vec, vector<double> y_vec)
 	writeOutput(x_vec, y_vec, outFile);
 
 	// Create a pipe to send information to gnuplot.
-	FILE *gnuplotPipe = _popen("\"C:\\Program Files\\gnuplot\\bin\\gnuplot.exe\" -persistent", "w");
+	// FILE *gnuplotPipe = _popen("\"C:\\Program Files\\gnuplot\\bin\\gnuplot.exe\" -persistent", "w");  // Full path.
+	FILE *gnuplotPipe = _popen("gnuplot -persist", "w");  // Open a pipe to gnuplot.
 
 	if (gnuplotPipe) {   // If gnuplot is found
 		fprintf(gnuplotPipe, "set xlabel 'X'\n");
@@ -249,7 +250,8 @@ void plotXY_reg(vector<double> x_vec, vector<double> y_vec, vector<double> x_vec
 	writeOutput(x_vec_regr, y_vec_regr, outFile);
 
 	// Create a pipe to send information to gnuplot.
-	FILE *gnuplotPipe = _popen("\"C:\\Program Files\\gnuplot\\bin\\gnuplot.exe\" -persistent", "w");
+	// FILE *gnuplotPipe = _popen("\"C:\\Program Files\\gnuplot\\bin\\gnuplot.exe\" -persistent", "w");  // Full path.
+	FILE *gnuplotPipe = _popen("gnuplot -persist", "w");  // Open a pipe to gnuplot.
 
 	if (gnuplotPipe) {   // If gnuplot is found
 		fprintf(gnuplotPipe, "set xlabel 'Time (years)'\n");
@@ -277,6 +279,6 @@ void plotXY_reg(vector<double> x_vec, vector<double> y_vec, vector<double> x_vec
 
 		fflush(gnuplotPipe); //flush pipe
 		fprintf(gnuplotPipe, "\nexit \n");   // exit gnuplot
-		_pclose(gnuplotPipe);    //close pipe {{1111223ssdww
+		_pclose(gnuplotPipe);    //close pipe
 	}
 }
