@@ -22,5 +22,5 @@ Test.y_vec = DATA_TEST_y.y_in;
 Test.slope_cal();									// Calculating the linear regression slope
 assert(rounding(Test.alpha, 3) == -39.062);			// Asserting that it matches the known values
 assert(rounding(Test.beta, 3) == 61.272);
-cout << "Linear regression testing complete" << endl;
+cout << endl << "Linear regression testing complete" << endl;
 }
